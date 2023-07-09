@@ -7,12 +7,14 @@ function App() {
 
   return (
     <div className='Proyecto'>
+        
         <Navbar/>
-        <ItemListContainer items={'Lista de Productos'}/> 
+        <ItemListContainer greeting={'Lista de Productos'}/>;
     </div>
-     
+      
      
   )
 }
 
 export default App
+//

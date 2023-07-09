@@ -13,7 +13,11 @@
   -webkit-text-size-adjust: 100%;
   background-image: url(/E-commerc/src/assets/power.jpg) ;
 }
-
+*{
+  margin: 0;
+  padding: 0;
+  background-image: url(/E-commerc/src/assets/power.jpg) ;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -28,8 +32,8 @@ body {
   margin: 0;
   display: flex;
   place-items: start;
-  min-width: 320px;
-  min-height: 100vh;
+  min-width: 600px;
+  min-height: 200vh;
 }
 
 h1 {
@@ -72,5 +76,5 @@ button:focus-visible {
   margin:0;
   display: flex;
   place-items: center;
-  flex-direction: row ;
+  
 }
