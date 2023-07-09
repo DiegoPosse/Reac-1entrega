@@ -5,19 +5,19 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #989494;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-image: src="https://assets.pinterest.com/ext/embed.html?id=332422016283709052"
+  background-image: src="/E-commerc/src/assets/power.jpg " 
       
 }
 *{
   margin: 0;
   padding: 0;
-  background-image: url(/E-commerc/src/assets/power.jpg) ;
+  
 }
 a {
   font-weight: 500;

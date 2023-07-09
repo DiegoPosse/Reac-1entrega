@@ -1,16 +1,16 @@
-const ItemListContainer=(props) =>  {
-    const greeting =props  
-    return ( 
+const ItemListContainer=({greeting}) =>  {
+    
+        return ( 
         <div>
-            <h1>{greeting.message}</h1>
-            <p >greeting</p>
+            <h1>{greeting}</h1>
+            
         </div>
     )
 
 
 }
 export default ItemListContainer
-//<h1>{greeting.message}</h1>
+
 
 
 
