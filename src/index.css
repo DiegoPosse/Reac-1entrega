@@ -11,7 +11,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-image: url(/E-commerc/src/assets/power.jpg) ;
+  background-image: src="https://assets.pinterest.com/ext/embed.html?id=332422016283709052"
+      
 }
 *{
   margin: 0;
@@ -75,6 +76,7 @@ button:focus-visible {
 .Proyecto {
   margin:0;
   display: flex;
+  flex-direction: column;
   place-items: center;
   
 }
