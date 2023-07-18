@@ -17,9 +17,9 @@ const ItemListContainer = ({ greeting }) => {
            <h1>{greeting}</h1>
        </div>
        {productos.map((producto) => (
-         <div key={producto.id}>
+         <div key={producto.id}>  
            <h2>{producto.title}</h2>
-           <h3>{producto.description}</h3>
+           <img src={producto.image} alt={producto.title} />
            <h1>{producto.price}</h1>
          </div>  
        ))}
