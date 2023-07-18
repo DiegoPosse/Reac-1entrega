@@ -11,7 +11,7 @@ function App() {
     <div className='Proyecto'>
         
         <Navbar/>
-        <ItemListContainer greeting='Lista de Productos'/>
+        
         <Itemcounter count='Contador' ValInit={1} stock={8} />
     </div>
       
@@ -20,4 +20,3 @@ function App() {
 }
 
 export default App
-//
