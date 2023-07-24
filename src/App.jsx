@@ -1,7 +1,7 @@
 import Navbar from './componentes/NavBar/NavBar'
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './componentes/ItemdetailContainer/ItemDetailContainer'
 
-import Itemcounter from './componentes/ItemCounter/ItemCounter'
 import './App.css'
 
 function App() {
@@ -11,12 +11,14 @@ function App() {
     <div className='Proyecto'>
         
         <Navbar/>
+        <ItemListContainer greeting='Lista de Productos'/>
+       
         
-        <Itemcounter count='Contador' ValInit={1} stock={8} />
     </div>
+
       
      
   )
 }
-
+<ItemDetailContainer/>
 export default App

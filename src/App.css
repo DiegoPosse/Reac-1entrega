@@ -48,3 +48,33 @@
 .read-the-docs {
   color: #888;
 }
+.itemlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.itemlist > * {
+  flex-basis: calc(33.33% - 20px);
+  margin-bottom: 20px;
+}
+.item {
+  border: 2px solid rgb(15, 14, 14); /* Añade un borde de 1 píxel de ancho y color negro */
+  padding: 5px; /* Añade un espacio de 10 píxeles alrededor del contenido */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items:center ; /* Centra los elementos verticalmente */
+  display:flex ;
+  color: black; /* Cambia el color de la letra a negro */
+  background: lightgray;
+  flex-direction: column;
+  
+}
+
+.item h1 {
+  color: black; /* Cambia el color de la letra a negro */
+  background: lightgray;
+}
+.item h2 {
+  color: black; /* Cambia el color de la letra a negro */
+  background: lightgray;
+}

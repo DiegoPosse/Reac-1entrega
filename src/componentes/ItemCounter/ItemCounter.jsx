@@ -16,6 +16,7 @@ const restar = () => {
     }
 
   return (
+    
     <div>
         <p>{count}</p>
         <button onClick={restar}>-</button>
