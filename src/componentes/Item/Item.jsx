@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import ItemDetailContainer from '../ItemdetailContainer/ItemDetailContainer';
+import { Link } from 'react-router-dom';
 const Item = () => {
     const [productos, setProductos] = useState([]);
 
@@ -19,7 +20,10 @@ const Item = () => {
           <h2>{producto.title}</h2>
           <img src={producto.image} alt={producto.title} width="200px" height="200px" />
           <h1>{producto.price}</h1>
-          <button onClick={() => ItemDetailContainer({ itemid: producto.id })}>Ver detalle</button>
+          <Link to={`/detalle/${producto.id}`}>
+        <div>Ver Detalle</div>
+      </Link>
+        {/*  <button onClick={() => ItemDetailContainer({ itemid: producto.id })}>Ver detalle</button>*/}
         </div>
       ))}
     </>

@@ -1,19 +1,17 @@
 import Navbar from './componentes/NavBar/NavBar'
-import ItemListContainer from './componentes/ItemListContainer/ItemListContainer'
-import ItemDetailContainer from './componentes/ItemdetailContainer/ItemDetailContainer'
 import { 
   BrowserRouter,
   Routes,
   Route
 } from 'react-router-dom';
 
-import Inicio from './pages/Inicio';
-import Detalle from './pages/Detalle';
-import Nosotros from './pages/Nosotros';
+import Inicio from './componentes/pages/Inicio/Inicio';
+import Detalle from './componentes/pages/Detalle/detalle';
+import Nosotros from './componentes/pages/Nosotros/Nosotros';
 import './App.css'
 
 function App() {
-  //const [count, setCount] = useState(0)
+
 
   return (
     <BrowserRouter>
@@ -22,15 +20,15 @@ function App() {
       <Routes>
         <Route
           exact
-          path='Inicio'
+          path='/'
           element={<Inicio/>}
         />
         <Route
-          path='Detalle/:id'
+          path='/Detalle/:id'
           element={<Detalle/>}
         />
         <Route
-          path='Nosotros'
+          path='/Nosotros'
           element={<Nosotros/>}
         />
       </Routes>

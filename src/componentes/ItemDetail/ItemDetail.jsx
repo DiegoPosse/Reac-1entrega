@@ -4,11 +4,13 @@ import { useParams } from 'react-router-dom';
 const ItemDetail = () => {
   const [producto, setProducto] = useState(null);
   const {id} = useParams();
-  console.log('id:', id)
+  const idNumero = parseInt(id)
+  console.log('id de producto:', id)
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    fetch(`https://fakestoreapi.com/products/${idNumero}`)
     .then(res => res.json())
     .then(json => {
+      
       if (json && json.length > 0) {
         setProducto(json);
       } else {
@@ -18,7 +20,7 @@ const ItemDetail = () => {
     .catch(error => {
       console.error('Ocurrió un error al obtener la respuesta JSON:', error);
     });
-  }, [id]);
+  }, [idNumero]);
 
   return (
     <div>
