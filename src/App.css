@@ -26,20 +26,9 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+
+
 
 .card {
   padding: 2em;
@@ -59,22 +48,104 @@
   margin-bottom: 20px;
 }
 .item {
-  border: 2px solid rgb(15, 14, 14); /* Añade un borde de 1 píxel de ancho y color negro */
-  padding: 5px; /* Añade un espacio de 10 píxeles alrededor del contenido */
-  justify-content: center; /* Centra los elementos horizontalmente */
-  align-items:center ; /* Centra los elementos verticalmente */
+  border: 2px solid rgb(15, 14, 14); 
+  padding: 5px; 
+  justify-content: center; 
+  align-items:center ; 
   display:flex ;
-  color: black; /* Cambia el color de la letra a negro */
+  color: black; 
   background: lightgray;
   flex-direction: column;
   
 }
 
 .item h1 {
-  color: black; /* Cambia el color de la letra a negro */
+  color: black; 
   background: lightgray;
 }
 .item h2 {
-  color: black; /* Cambia el color de la letra a negro */
+  color: black; 
   background: lightgray;
+}
+.link {
+  color: white;
+  margin: 15px;
+  font-weight: bold;
+  font-size: large;
+}
+.Noso >p {
+  color: rgb(22, 13, 144);
+  margin: 15px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: large;
+
+}
+.Noso >h1 {
+  color: rgb(4, 4, 9);
+  margin: 15px;
+  padding: 10px;
+   
+}
+.link:hover {
+  color: rgb(22, 141, 18)
+}
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:chocolate;
+  padding: 10px;
+}
+
+.logo h1 {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav-link:hover {
+  color: rgb(22, 141, 18)
+}
+.nav-links .link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: chocolate;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.dropdown-menu .link {
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu .link:hover {
+  color: #ff0000;
 }

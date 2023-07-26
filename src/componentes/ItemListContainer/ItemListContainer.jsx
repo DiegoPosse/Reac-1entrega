@@ -1,17 +1,14 @@
 import ItemList from '../ItemList/ItemList'
-
-
-
-const ItemListContainer = ({ greeting }) => {
-
+const ItemListContainer = ({ greeting ,datos}) => {
   
-
   return (
     <>
     <div>
         <h1>{greeting}</h1>
     </div>
-    <ItemList/>
+    <ItemList
+    productos={datos}
+    />
     </>
   )
 }

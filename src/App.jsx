@@ -34,13 +34,7 @@ function App() {
       </Routes>
     </main>
   </BrowserRouter>
-   // <div className='Proyecto'>
-   //     
-   //     <Navbar/>
-   //     <ItemListContainer greeting='Lista de Productos'/>
-   //    
-    //    
-    //</div>
+   
 
       
      
