@@ -13,6 +13,7 @@ const ItemDetail = ( {producto} ) => {
           height="300px"
         />
         <h2>{producto.description}</h2>
+        <h2>{producto.category}</h2>
         <h1>{producto.price}</h1>
       
     </div>

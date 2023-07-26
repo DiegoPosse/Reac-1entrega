@@ -16,6 +16,7 @@ const Inicio = () => {
       datos={productos}
        />
     </div>
+    // categorias = men's clothing , jewelery , electronics ,women's clothing
   
     )
 }
