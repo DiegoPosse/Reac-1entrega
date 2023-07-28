@@ -123,6 +123,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-weight: bold;
   padding: 0;
   margin-right: 10px;
   text-decoration: none;
@@ -147,5 +148,5 @@
 }
 
 .dropdown-menu .link:hover {
-  color: #ff0000;
+  color: #1bf323;
 }

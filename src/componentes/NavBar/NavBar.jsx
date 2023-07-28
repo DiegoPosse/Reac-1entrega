@@ -2,9 +2,9 @@ import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
-function Navbar() {
+  function Navbar() {
   const [rubrosMenuOpen, setRubrosMenuOpen] = useState(false);
-
+  
   const toggleRubrosMenu = () => {
     setRubrosMenuOpen(!rubrosMenuOpen);
   };
@@ -24,16 +24,19 @@ function Navbar() {
           </button>
           {rubrosMenuOpen && (
             <div className="dropdown-menu">
-              <NavLink to='/rubros/joyeria'>
-                <span className='link'>Joyería</span>
-              </NavLink>
-              <NavLink to='/rubros/ropa'>
-                <span className='link'>Ropa</span>
-              </NavLink>
-              <NavLink to='/rubros/computacion'>
-                <span className='link'>Computación</span>
-              </NavLink>
-            </div>
+            <NavLink to='/joyeria'>
+              <span className='link'>Joyería</span>
+            </NavLink>
+            <NavLink to='/ropa-de-hombre'>
+              <span className='link'>Ropa de hombre</span>
+            </NavLink>
+            <NavLink to='/ropa-de-mujer'>
+              <span className='link'>Ropa de mujer</span>
+            </NavLink>
+            <NavLink to='/electronica'>
+              <span className='link'>Electronica</span>
+            </NavLink>
+          </div>
           )}
         </div>
         <NavLink to='/nosotros'>

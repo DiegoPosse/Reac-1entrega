@@ -11,34 +11,35 @@ import Nosotros from './componentes/pages/Nosotros/Nosotros';
 import './App.css'
 
 function App() {
-
-
   return (
-    <BrowserRouter>
-    <Navbar />
-    <main id='main__container'>
-      <Routes>
-        <Route
-          exact
-          path='/'
-          element={<Inicio/>}
-        />
-        <Route
-          path='/Detalle/:id'
-          element={<Detalle/>}
-        />
-        <Route
-          path='/Nosotros'
-          element={<Nosotros/>}
-        />
-      </Routes>
-    </main>
-  </BrowserRouter>
-   
-
-      
-     
-  )
+    <div className="App">
+      <BrowserRouter>
+        <Navbar />
+        <main id='main__container'>
+          <Routes>
+            <Route
+              exact
+              path='/'
+              element={<Inicio />}
+            />
+            <Route
+              exact
+              path='/:categoria'
+              element={<Inicio />}
+            />
+            <Route
+              path='/Detalle/:id'
+              element={<Detalle />}
+            />
+            <Route
+              path='/Nosotros'
+              element={<Nosotros />}
+            />
+          </Routes>
+        </main>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
