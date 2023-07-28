@@ -8,7 +8,9 @@ import { useState } from 'react';
   const toggleRubrosMenu = () => {
     setRubrosMenuOpen(!rubrosMenuOpen);
   };
-
+  const closeRubrosMenu = () => {
+    setRubrosMenuOpen(false);
+  };
   return (
     <nav id='navbar'>
       <div className="logo">
@@ -19,21 +21,21 @@ import { useState } from 'react';
           <span className='link'>Inicio</span>
         </NavLink>
         <div className="dropdown">
-          <button className="dropdown-toggle" onClick={toggleRubrosMenu}>
+          <button className="dropdown-toggle" onClick={toggleRubrosMenu} >
             Rubros
           </button>
           {rubrosMenuOpen && (
             <div className="dropdown-menu">
-            <NavLink to='/joyeria'>
+            <NavLink to='/joyeria'onClick={closeRubrosMenu}>
               <span className='link'>Joyería</span>
             </NavLink>
-            <NavLink to='/ropa de hombre'>
+            <NavLink to='/ropa de hombre' onClick={closeRubrosMenu}>
               <span className='link'>Ropa de hombre</span>
             </NavLink>
-            <NavLink to='/ropa de mujer'>
+            <NavLink to='/ropa de mujer'onClick={closeRubrosMenu}>
               <span className='link'>Ropa de mujer</span>
             </NavLink>
-            <NavLink to='/electronica'>
+            <NavLink to='/electronica'onClick={closeRubrosMenu}>
               <span className='link'>Electronica</span>
             </NavLink>
           </div>
