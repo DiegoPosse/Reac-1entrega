@@ -24,7 +24,7 @@ function App() {
             />
             <Route
               exact
-              path='/:categoria'
+              path='/:categorias'
               element={<Inicio />}
             />
             <Route

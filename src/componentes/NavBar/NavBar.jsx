@@ -27,10 +27,10 @@ import { useState } from 'react';
             <NavLink to='/joyeria'>
               <span className='link'>Joyería</span>
             </NavLink>
-            <NavLink to='/ropa-de-hombre'>
+            <NavLink to='/ropa de hombre'>
               <span className='link'>Ropa de hombre</span>
             </NavLink>
-            <NavLink to='/ropa-de-mujer'>
+            <NavLink to='/ropa de mujer'>
               <span className='link'>Ropa de mujer</span>
             </NavLink>
             <NavLink to='/electronica'>
