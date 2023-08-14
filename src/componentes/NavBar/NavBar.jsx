@@ -15,6 +15,8 @@ import { useState } from 'react';
     <nav id='navbar'>
       <div className="logo">
         <h1>Power Computación</h1>
+        <img src="..\src\assets\logo.jpeg" alt="logopower" width="50px" height="50px"/>
+  
       </div>
       <div className="nav-links">
         <NavLink to='/'>
@@ -26,23 +28,29 @@ import { useState } from 'react';
           </button>
           {rubrosMenuOpen && (
             <div className="dropdown-menu">
-            <NavLink to='/joyeria'onClick={closeRubrosMenu}>
-              <span className='link'>Joyería</span>
+            <NavLink to='/mothers'onClick={closeRubrosMenu}>
+              <span className='link'>Placas Madre</span>
             </NavLink>
-            <NavLink to='/ropa de hombre' onClick={closeRubrosMenu}>
-              <span className='link'>Ropa de hombre</span>
+            <NavLink to='/procesadores' onClick={closeRubrosMenu}>
+              <span className='link'>Procesadores</span>
             </NavLink>
-            <NavLink to='/ropa de mujer'onClick={closeRubrosMenu}>
-              <span className='link'>Ropa de mujer</span>
+            <NavLink to='/memorias'onClick={closeRubrosMenu}>
+              <span className='link'>Memorias</span>
             </NavLink>
-            <NavLink to='/electronica'onClick={closeRubrosMenu}>
-              <span className='link'>Electronica</span>
+            <NavLink to='/placas de video'onClick={closeRubrosMenu}>
+              <span className='link'>Placas de video</span>
+            </NavLink>
+            <NavLink to='/discos'onClick={closeRubrosMenu}>
+              <span className='link'>Discos</span>
             </NavLink>
           </div>
           )}
         </div>
         <NavLink to='/nosotros'>
           <span className='link'>Acerca de nosotros</span>
+        </NavLink>
+        <NavLink to='/Cart'>
+          <span className='link'>Carrito</span>
         </NavLink>
       </div>
       <CartWidget />

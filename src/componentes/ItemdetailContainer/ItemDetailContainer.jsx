@@ -1,15 +1,37 @@
-import React from 'react'
+import React , { useContext } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import ItemCounter from '../ItemCounter/ItemCounter'
-const ItemDetailContainer = ({ itemdetalle }) => {
+import { CartContext } from '../../Context/CartContext';
+
+
+const ItemDetailContainer = ( {itemdetalle} ) => {
   
+  const { addItem } = useContext(CartContext);
+  const stockArt =itemdetalle[0].stock
+  console.log(stockArt)
+  const { title, description, price, category, image, id, stock } = itemdetalle[0];
+  console.log(stock)
+  const onAdd = (cantidad) => {
+    
+    let item = { title, description, price, category, image, id, stock };
+      addItem(item, cantidad);
+      
+  };
+  
+  const handleVolver = () => {
+    window.history.back();
+  };
+
   return (
+    
     <div>
-        <p>Detalle del producto :</p>
-        <ItemDetail producto={itemdetalle}/>
-        <ItemCounter cuenta='Cantidad' ValInit={1} stock={8}/>
-        <button>Agregar al Carrito</button>
+      {/* {console.log(itemdetalle)} */}
+      <h2>Detalle del producto :</h2>
+      <ItemDetail producto={itemdetalle[0]} />
+      <ItemCounter cuenta='Cantidad' ValInit={1} stock={stockArt} onAdd={onAdd} />
+      <button onClick={handleVolver}>Volver</button>
     </div>
+  
   )
 }
 

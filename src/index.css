@@ -18,6 +18,7 @@
   margin: 0;
   padding: 0;
   
+  
 }
 a {
   font-weight: 500;
@@ -25,7 +26,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #0fd430;
+  color: #d68d0d;
 }
 
 body {
@@ -36,6 +37,7 @@ body {
   min-width: 600px;
   min-height: 200vh;
 }
+@import "bootstrap/scss/bootstrap";
 
 h1 {
   font-size: 3.2em;
@@ -43,18 +45,18 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 4px;
+  border: 2px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #2907e6;
+  background-color: #d4660c;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  background-color: #04d880;
+  background-color: #d9612eda;
 }
 button:focus,
 button:focus-visible {
@@ -79,4 +81,160 @@ button:focus-visible {
   flex-direction: column;
   place-items: center;
   
+}
+.carrito {
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carrito h2 {
+  margin-bottom: 10px;
+}
+
+.carrito ul {
+  list-style: none;
+  padding: 0;
+}
+
+.carrito li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.carrito li img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.carrito button {
+  background-color: #ff6f00e0;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.carrito button:hover {
+  background-color: #2b148fe0;
+  color: #f9d486;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.subtotal {
+  margin-top: 20px;
+}
+.carrito li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+.articulos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.articulos th,
+.articulos td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.articulos th {
+  background-color: #f0680d;
+}
+
+.articulos img {
+  width: 50px;
+  height: 50px;
+}
+
+.subtotal {
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form-label {
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-dark {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-dark:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-dark:hover {
+  background-color: #555;
+}
+.custom-swal-container {
+  background-color: #589f9c; /* Color de fondo */
+  border: 1px solid #3f7ebe; /* Borde */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #343a40; /* Color de texto */
+}
+.link:hover {
+  color: #000218;
+  background-color: #d4780f;
+  border-radius: 4px;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotateX(0deg) ;
+  }
+  100% {
+    transform: rotateX(360deg) ;
+  }
+}
+
+.logo:hover {
+  animation: spin 1s linear infinite; /* Agrega la animación de giro en 3D al hacer hover */
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container button {
+  margin-right: 10px; /* Espacio entre los botones */
 }

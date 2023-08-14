@@ -9,12 +9,13 @@ const ItemDetail = ( {producto} ) => {
         <img
           src={producto.image}
           alt={producto.title}
-          width="300px"
-          height="300px"
+          width="500px"
+          height="250px"
         />
         <h2>{producto.description}</h2>
-        <h2>{producto.category}</h2>
-        <h1>{producto.price}</h1>
+        
+        <h2>Stock actual :{producto.stock}</h2>
+        <h1>${producto.price.toLocaleString('es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</h1>
       
     </div>
    
