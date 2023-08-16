@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import  { useState } from 'react';
 import { useCart } from '../../../Context/CartContext';
 import Checkout from '../../checkout/CheckOut';
 import Swal from 'sweetalert2';
@@ -99,37 +99,7 @@ clear();
 
   const total = cart.reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0);
 
-//   return (
-//     <div className='carrito'>
-//       <h2>Carrito de Compras</h2>
-//       <ul className="articulos">
-//         {cart.map((item) => {
-//           const subtotal = item.price * item.quantity;
 
-//           return (
-//             <li key={item.id} className="articulo">
-//               <img src={item.image} alt={item.title} width="50px" height="50px" />
-//               <p>{item.title}</p>
-//               <p>Precio: ${item.price}</p>
-//               <p>Cantidad: {item.quantity}</p>
-//               <p>Subtotal: ${subtotal}</p>
-//               <button onClick={() => handleDeleteItem(item.id)}>Eliminar</button>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//       <div className="subtotal">
-//         <p>Total: ${total}</p>
-//       </div>
-//       <div className="button-container">
-//         <button onClick={handleClearCart}>Eliminar todo</button>
-//         <button onClick={handleProcessPurchase}>Procesar compra</button>
-//         {cart.length > 0 && isCheckoutVisible && <Checkout />}
-//       </div>
-      
-//     </div>
-//   );
-// };
 
 return (
   <div className="carrito">

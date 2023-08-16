@@ -1,6 +1,23 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+
+import { useCart } from '../../Context/CartContext';
+const firebaseConfig = {
+  apiKey: "AIzaSyD9NHAgEUUoTRrIduo5fXejD5BFhM1HZ7o",
+  authDomain: "e-commerce-25ba4.firebaseapp.com",
+  projectId: "e-commerce-25ba4",
+  storageBucket: "e-commerce-25ba4.appspot.com",
+  messagingSenderId: "894774974938",
+  appId: "1:894774974938:web:202add97b6cce2adf2c8e3"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const Checkout = () => {
+  const { cart, deleteItem, clear } = useCart();
+  const history = useHistory();
     const [user, setUser]= useState({})
     const [validate, setValidate]= useState('')
 
@@ -10,7 +27,7 @@ const Checkout = () => {
             [e.target.name]:e.target.value
         })
     }
-
+    
    const generarOrden = (e) =>{
     e.preventDefault();
     console.log("compra enviada a pagos" )
@@ -20,13 +37,49 @@ const Checkout = () => {
         showConfirmButton: false,
         timer: 2500
       })
+      handleCheckout()  
+      
+      const handleCheckout = async () => {
+        // for (const item of cart) {
+        //   const itemId = item.id;
+        //   const cantidadComprada = item.quantity;
+  
+        //   try {
+        //     const itemRef = firebase.firestore().collection('PowerComputacion').doc(itemId);
+        //     const itemDoc = await itemRef.get();
+  
         
+        //     const stockDisponible = itemDoc.data().stock;
+  
+        
+        //     const nuevoStock = stockDisponible - cantidadComprada;
+  
+        
+        //     await itemRef.update({ stock: nuevoStock });
+        //   } catch (error) {
+        //     console.error('Error al actualizar el stock:', error);
+        //   }
+        // }
       
-      
-      localStorage.removeItem("carrito");
-      carrito = []
+        
+       // setCarrito([]);
+      //}
+      discountCartStock(cart)
+      function discountStock(id, quantity) {
 
-   }
+        const product = db.PowerComputacion.findById(id);
+        product.stock -= quantity;
+        db.PowerComputacion.save(product);
+      }
+      function discountCartStock(cart) {
+        for (const item of cart.items) {
+          discountStock(item.productId, item.quantity);
+        }
+      }
+      localStorage.removeItem("carrito");
+      history.push('/');
+  }
+  }
     
    return(
     <div>
@@ -39,15 +92,19 @@ const Checkout = () => {
         </div>
         <div className='mb-3'>
             <label className='form-label'>Número de telefono</label>
-            <input className='form-control' type='number' placeholder='+54985131654564' name='phone' onChange={obtenerDatos} />
+            <input className='form-control' type='number' placeholder='+549*********' name='phone' onChange={obtenerDatos} />
+        </div>
+        <div className='mb-3'>
+            <label className='form-label'>Domicilio </label>
+            <input className='form-control' type='text' placeholder='san martin 1550*' name='address' onChange={obtenerDatos} />
         </div>
         <div className='mb-3'>
             <label className='form-label'>Direccion de email</label>
-            <input className='form-control' type='email' placeholder='lala@lala.com' name='mail' onChange={obtenerDatos} />
+            <input className='form-control' type='email' placeholder='rrrr@rrrr.com' name='mail' onChange={obtenerDatos} />
         </div>
         <div className='mb-3'>
             <label className='form-label'>Repita su email</label>
-            <input className='form-control' type='email' placeholder='lala@lala.com' name='mail' onChange={(e) => setValidate(e.target.value)} />
+            <input className='form-control' type='email' placeholder='rrrr@rrrr.com' name='mail' onChange={(e) => setValidate(e.target.value)} />
         </div>
         <div className='mb-3'>
             <label className='form-label'>Método de pago</label>

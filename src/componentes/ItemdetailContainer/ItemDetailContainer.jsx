@@ -8,9 +8,9 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
   
   const { addItem } = useContext(CartContext);
   const stockArt =itemdetalle[0].stock
-  console.log(stockArt)
+  
   const { title, description, price, category, image, id, stock } = itemdetalle[0];
-  console.log(stock)
+  
   const onAdd = (cantidad) => {
     
     let item = { title, description, price, category, image, id, stock };

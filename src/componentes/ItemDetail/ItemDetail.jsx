@@ -10,7 +10,7 @@ const ItemDetail = ( {producto} ) => {
           src={producto.image}
           alt={producto.title}
           width="500px"
-          height="250px"
+          height="auto"
         />
         <h2>{producto.description}</h2>
         

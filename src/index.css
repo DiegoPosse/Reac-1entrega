@@ -37,7 +37,7 @@ body {
   min-width: 600px;
   min-height: 200vh;
 }
-@import "bootstrap/scss/bootstrap";
+
 
 h1 {
   font-size: 3.2em;
@@ -51,7 +51,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #d4660c;
+  background-color: #a7510b;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -203,13 +203,13 @@ form {
   background-color: #555;
 }
 .custom-swal-container {
-  background-color: #589f9c; /* Color de fondo */
-  border: 1px solid #3f7ebe; /* Borde */
-  border-radius: 4px; /* Bordes redondeados */
-  padding: 20px; /* Espaciado interno */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
-  font-size: 16px; /* Tamaño de fuente */
-  color: #343a40; /* Color de texto */
+  background-color: #589f9c; 
+  border: 1px solid #3f7ebe; 
+  border-radius: 4px;
+  padding: 20px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  font-size: 16px; 
+  color: #343a40; 
 }
 .link:hover {
   color: #000218;
@@ -228,7 +228,7 @@ form {
 }
 
 .logo:hover {
-  animation: spin 1s linear infinite; /* Agrega la animación de giro en 3D al hacer hover */
+  animation: spin 1s linear infinite; 
 }
 .button-container {
   display: flex;
@@ -236,5 +236,5 @@ form {
 }
 
 .button-container button {
-  margin-right: 10px; /* Espacio entre los botones */
+  margin-right: 10px; 
 }

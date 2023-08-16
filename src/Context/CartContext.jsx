@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-
+import { addDoc, doc, collection, getDocs, getFirestore, query, where, updateDoc, writeBatch } from 'firebase/firestore';
 export const CartContext = createContext();
 
 const productosLocalStorage = JSON.parse(localStorage.getItem('carrito')) || [];

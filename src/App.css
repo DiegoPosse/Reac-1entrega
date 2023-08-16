@@ -8,9 +8,7 @@
 *{
   margin: 0;
   padding: 0;
-  /* background-color: chocolate; */
   
-  /*background-image: url(/src/assets/power.jpg)*/
 }
 body {
   margin: 0;
@@ -39,7 +37,7 @@ body {
 
 
 
-@import "bootstrap/scss/bootstrap";
+/* @import "/node_modules/bootstrap/scss/"; */
 
 
 .card {
@@ -147,7 +145,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: chocolate;
+  background-color:rgb(77, 203, 140);
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -161,7 +159,7 @@ body {
 }
 
 .dropdown-menu .link:hover {
-  color: #d5820e;
+  color: #0d0c0a;
 }
 .carrito {
   border: 1px solid #ccc;
