@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
-
+import Loader from '../Loader/loader';
 const ItemListContainer = ({ greeting, datos, cat }) => {
   const [isLoading, setIsLoading] = useState(true);
   
@@ -23,6 +23,7 @@ const ItemListContainer = ({ greeting, datos, cat }) => {
     return (
       <div>
         <h2>Cargando...</h2>
+        <Loader />
       </div>
     );
   }

@@ -81,7 +81,7 @@ clear();
     ) {
       swalWithBootstrapButtons.fire(
         'Cancelado',
-        'el carrito no se borrado :)',
+        'el carrito no se ha borrado :)',
         'error'
       )
     }
@@ -92,7 +92,7 @@ clear();
   const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
   const handleProcessPurchase = () => {
-    // Lógica para procesar la compra
+   
     console.log('Compra procesada');
     setIsCheckoutVisible(true);
   };
@@ -122,7 +122,7 @@ return (
           return (
             <tr key={item.id} className="articulo">
               <td>
-                <img src={item.image} alt={item.title} width="50px" height="50px" />
+                <img src={item.image} alt={item.title} width="50px" height="auto" />
               </td>
               <td>{item.title}</td>
               <td>${item.price}</td>

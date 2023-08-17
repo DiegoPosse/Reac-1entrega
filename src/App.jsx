@@ -10,12 +10,9 @@ import Detalle from './componentes/pages/Detalle/detalle';
 import Nosotros from './componentes/pages/Nosotros/Nosotros';
 import Cart from './componentes/pages/Cart/carrito';
 import { CartProvider } from './Context/CartContext';
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+import { initializeApp } from "firebase/app";
+
 const firebaseConfig = {
   apiKey: "AIzaSyD9NHAgEUUoTRrIduo5fXejD5BFhM1HZ7o",
   authDomain: "e-commerce-25ba4.firebaseapp.com",
@@ -25,7 +22,7 @@ const firebaseConfig = {
   appId: "1:894774974938:web:202add97b6cce2adf2c8e3"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 import './App.css'
 
