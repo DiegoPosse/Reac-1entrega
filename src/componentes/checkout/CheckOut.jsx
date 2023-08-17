@@ -88,7 +88,7 @@ const Checkout = () => {
     }  
     
     
-  }
+  
   
     
    return(
