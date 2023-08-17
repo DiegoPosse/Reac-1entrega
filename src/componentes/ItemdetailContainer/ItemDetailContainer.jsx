@@ -25,7 +25,7 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
   return (
     
     <div>
-      {/* {console.log(itemdetalle)} */}
+      
       <h2>Detalle del producto :</h2>
       <ItemDetail producto={itemdetalle[0]} />
       <ItemCounter cuenta='Cantidad' ValInit={1} stock={stockArt} onAdd={onAdd} />

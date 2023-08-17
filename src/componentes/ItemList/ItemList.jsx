@@ -11,10 +11,9 @@ const ItemList = ({productos}) => {
           <h2>{producto.title}</h2>
           <img src={producto.image} alt={producto.title} width="200px" height="auto" />
           <h1>${producto.price.toLocaleString('es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</h1>
-          
           <Link to={`/detalle/${producto.id}`}>
-        <div>Ver Detalle</div>
-      </Link>
+              <div>Ver Detalle</div>
+          </Link>
         
         </div>
       ))}

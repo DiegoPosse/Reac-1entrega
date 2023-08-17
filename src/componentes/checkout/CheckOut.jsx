@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
-import { useHistory } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 
@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const Checkout = () => {
   const { cart, deleteItem, clear } = useCart();
-  const history = useHistory();
+  const history = useNavigate();
     const [user, setUser]= useState({})
     const [validate, setValidate]= useState('')
 
@@ -28,45 +28,30 @@ const Checkout = () => {
         })
     }
     
-   const generarOrden = (e) =>{
-    e.preventDefault();
-    console.log("compra enviada a pagos" )
-    Swal.fire({
-        icon: 'success',
-        title: 'Confirmado !! Su pago a sido procesado.',
-        showConfirmButton: false,
-        timer: 2500
-      })
-      handleCheckout()  
+    const handleCheckout = async () => {
+      // for (const item of cart) {
+      //   const itemId = item.id;
+      //   const cantidadComprada = item.quantity;
+
+      //   try {
+      //     const itemRef = firebase.firestore().collection('PowerComputacion').doc(itemId);
+      //     const itemDoc = await itemRef.get();
+
       
-      const handleCheckout = async () => {
-        // for (const item of cart) {
-        //   const itemId = item.id;
-        //   const cantidadComprada = item.quantity;
-  
-        //   try {
-        //     const itemRef = firebase.firestore().collection('PowerComputacion').doc(itemId);
-        //     const itemDoc = await itemRef.get();
-  
-        
-        //     const stockDisponible = itemDoc.data().stock;
-  
-        
-        //     const nuevoStock = stockDisponible - cantidadComprada;
-  
-        
-        //     await itemRef.update({ stock: nuevoStock });
-        //   } catch (error) {
-        //     console.error('Error al actualizar el stock:', error);
-        //   }
-        // }
+      //     const stockDisponible = itemDoc.data().stock;
+
       
-        
-       // setCarrito([]);
-      //}
+      //     const nuevoStock = stockDisponible - cantidadComprada;
+
+      
+      //     await itemRef.update({ stock: nuevoStock });
+      //   } catch (error) {
+      //     console.error('Error al actualizar el stock:', error);
+      //   }
+      // }
       discountCartStock(cart)
       function discountStock(id, quantity) {
-
+  
         const product = db.PowerComputacion.findById(id);
         product.stock -= quantity;
         db.PowerComputacion.save(product);
@@ -76,10 +61,35 @@ const Checkout = () => {
           discountStock(item.productId, item.quantity);
         }
       }
+      try {
+        await handleCheckout();
+        navigate('/');
+      } catch (error) {
+        console.error('Error al procesar el checkout:', error);
+      }
+    };
       localStorage.removeItem("carrito");
       history.push('/');
+      
+     // setCarrito([]);
+    //}
+    
+  //  const generarOrden = (e) =>{
+    const generarOrden = async (e) =>{
+    e.preventDefault();
+    console.log("compra enviada a pagos" )
+    Swal.fire({
+        icon: 'success',
+        title: 'Confirmado !! Su pago a sido procesado.',
+        showConfirmButton: false,
+        timer: 2500
+      })
+       
+    }  
+    
+    
   }
-  }
+  
     
    return(
     <div>

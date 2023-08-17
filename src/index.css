@@ -231,7 +231,7 @@ form {
   animation: spin 1s linear infinite; 
 }
 .button-container {
-  display: flex;
+  display: inline-table;
   justify-content: space-between;
 }
 
