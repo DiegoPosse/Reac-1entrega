@@ -5,8 +5,8 @@ const Loader = () => {
   return (
     <div
       style={{
-        width: '50vw',
-        heigth: '150vh',
+        width: '60vw',
+        heigth: '250vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

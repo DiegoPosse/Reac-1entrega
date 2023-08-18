@@ -1,11 +1,17 @@
-import  { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import { useCart } from '../../../Context/CartContext';
 import Checkout from '../../checkout/CheckOut';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Cart = () => {
   const { cart, deleteItem, clear } = useCart();
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate('/');
+    }
+  }, [cart, navigate]);
   const handleDeleteItem = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -34,6 +40,7 @@ const Cart = () => {
   
         deleteItem(id);
         
+        
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ) {
@@ -50,44 +57,43 @@ const Cart = () => {
 
   const handleClearCart = () => {
       const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn btn-success',
-      cancelButton: 'btn btn-danger',
-      container: 'custom-swal-container',
-    },
-    buttonsStyling: false
-  })
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger',
+          container: 'custom-swal-container',
+        },
+        buttonsStyling: false
+      })
 
-  swalWithBootstrapButtons.fire({
-    title: 'Esta seguro de borrar   ?',
-    text: "se eliminaran los items del carrito!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Si, Borrar !',
-    cancelButtonText: 'No, cancelar !',
-    reverseButtons: true
-  }).then((result) => {
-    if (result.isConfirmed) {
-      swalWithBootstrapButtons.fire(
-        'Eliminados',
-        'el carrito a sido limpiado.',
-        'success'
-      )
-clear();
+      swalWithBootstrapButtons.fire({
+        title: 'Esta seguro de borrar   ?',
+        text: "se eliminaran los items del carrito!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, Borrar !',
+        cancelButtonText: 'No, cancelar !',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+           swalWithBootstrapButtons.fire(
+             'Eliminados',
+             'el carrito a sido limpiado.',
+             'success'
+            )
+            clear();
+            navigate('/');
+           
 
-      
-    } else if (
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire(
-        'Cancelado',
-        'el carrito no se ha borrado :)',
-        'error'
-      )
-    }
-  })
-
-    
+        } else if (
+           result.dismiss === Swal.DismissReason.cancel
+        ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'el carrito no se ha borrado :)',
+          'error'
+         )
+        }
+      }) 
   };
   const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 

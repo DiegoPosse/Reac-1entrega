@@ -1,10 +1,10 @@
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-
+import { useCart } from '../../Context/CartContext'
   function Navbar() {
   const [rubrosMenuOpen, setRubrosMenuOpen] = useState(false);
-  
+  const { cart } = useCart();
   const toggleRubrosMenu = () => {
     setRubrosMenuOpen(!rubrosMenuOpen);
   };
@@ -49,9 +49,14 @@ import { useState } from 'react';
         <NavLink to='/nosotros'>
           <span className='link'>Acerca de nosotros</span>
         </NavLink>
+        {cart.length > 0 && (
         <NavLink to='/Cart'>
-          <span className='link'>Carrito</span>
+          <span className='link'>Carrito </span>
         </NavLink>
+      )}
+        {/* <NavLink to='/Cart'>
+        <span className='link'>Carrito {cart.length > 0 && `(${cart.length})` }</span>
+        </NavLink> */}
       </div>
       <CartWidget />
     </nav>
