@@ -36,10 +36,6 @@ body {
 
 
 
-
-/* @import "/node_modules/bootstrap/scss/"; */
-
-
 .card {
   padding: 2em;
 }
@@ -58,9 +54,9 @@ body {
   margin-bottom: 20px;
 }
 .item {
-  border: 2px solid rgb(15, 14, 14); 
+  border: 2px solid rgb(24, 235, 130); 
   padding: 5px; 
-  justify-content: center; 
+   justify-content:  space-between;  
   align-items:center ; 
   display:flex ;
   color: black; 
@@ -245,4 +241,10 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   font-size: 16px; 
   color: #343a40; 
+}
+.volver {
+  margin-left: 20px;
+}
+.contador {
+  display: ruby;
 }

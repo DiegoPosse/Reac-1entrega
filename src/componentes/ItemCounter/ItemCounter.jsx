@@ -21,10 +21,10 @@ const ItemCounter = ({ cuenta, ValInit, stock, onAdd }) => {
 
   return (
     <>
-      <div>
-        <p>{cuenta}</p>
+      <div className='contador'>
+        <h2>{cuenta}</h2>
         <button onClick={restar}>-</button>
-        <span>{contador}</span>
+        <h2>{contador}</h2>
         <button onClick={sumar}>+</button>
       </div>
       <button

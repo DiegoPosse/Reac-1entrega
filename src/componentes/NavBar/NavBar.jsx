@@ -51,14 +51,13 @@ import { useCart } from '../../Context/CartContext'
         </NavLink>
         {cart.length > 0 && (
         <NavLink to='/Cart'>
-          <span className='link'>Carrito </span>
+          <CartWidget />          
         </NavLink>
-      )}
-        {/* <NavLink to='/Cart'>
-        <span className='link'>Carrito {cart.length > 0 && `(${cart.length})` }</span>
-        </NavLink> */}
-      </div>
-      <CartWidget />
+      )}    
+      {cart.length < 1 && (     
+        <CartWidget />   
+    )}        
+      </div>   
     </nav>
   );
 }

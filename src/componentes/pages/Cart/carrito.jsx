@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 const Cart = () => {
   const { cart, deleteItem, clear } = useCart();
   const navigate = useNavigate();
+  const [isProcessing, setIsProcessing] = useState(false);
   useEffect(() => {
     if (cart.length === 0) {
       navigate('/');
@@ -36,6 +37,7 @@ const Cart = () => {
           'Eliminado',
           'el articulo a sido removido del carrito.',
           'success'
+          
         )
   
         deleteItem(id);
@@ -81,6 +83,7 @@ const Cart = () => {
              'success'
             )
             clear();
+            setIsProcessing(false);
             navigate('/');
            
 
@@ -98,6 +101,7 @@ const Cart = () => {
   const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
   const handleProcessPurchase = () => {
+    setIsProcessing(true);
    
     console.log('Compra procesada');
     setIsCheckoutVisible(true);
@@ -135,7 +139,7 @@ return (
               <td>{item.quantity}</td>
               <td>${subtotal}</td>
               <td>
-                <button onClick={() => handleDeleteItem(item.id)}>Eliminar</button>
+                <button  onClick={() => handleDeleteItem(item.id)} disabled={isProcessing}>Eliminar </button>
               </td>
             </tr>
           );
@@ -146,7 +150,7 @@ return (
       <h2>Total: ${total}</h2>
     </div>
     <div className="button-container">
-      <button onClick={handleClearCart}>Eliminar todo</button>
+      <button onClick={handleClearCart} disabled={isProcessing}>Eliminar todo</button>
       <button onClick={handleProcessPurchase}>Procesar compra</button>
       {cart.length > 0 && isCheckoutVisible && <Checkout />}
     </div>

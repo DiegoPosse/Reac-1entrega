@@ -9,7 +9,7 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
   
   const { addItem } = useContext(CartContext);
   const { isInCart } = useContext(CartContext);
-  //const {updateItemQuantity} = useContext(CartContext)
+  
   const { cart, updateItemQuantity } = useCart();
   const stockArt =itemdetalle[0].stock
   
@@ -19,7 +19,7 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
     
     let item = { title, description, price, category, image, id, stock };
     if (isInCart(id)) {
-      console.log("esta en el carrito"); 
+       
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
           confirmButton: 'btn btn-success',
@@ -44,9 +44,8 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
              'El carrito a sido modificado',
              'success'
             )
-            const newQuantity = cantidad; // Reemplaza esto con la nueva cantidad
-            updateItemQuantity(id, newQuantity); // Actualiza la cantidad del artículo en
-           //aca va actualizar la cantidad de ese articulo en el carrito
+            const newQuantity = cantidad; 
+            updateItemQuantity(id, newQuantity); 
 
         } else if (
            result.dismiss === Swal.DismissReason.cancel
@@ -61,7 +60,7 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
 
 
     }else {
-      console.log("no estaba en el carrito")
+      
       addItem(item, cantidad);
     }
          
@@ -78,7 +77,7 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
       <h2>Detalle del producto :</h2>
       <ItemDetail producto={itemdetalle[0]} />
       <ItemCounter cuenta='Cantidad' ValInit={1} stock={stockArt} onAdd={onAdd} />
-      <button onClick={handleVolver}>Volver</button>
+      <button className='volver' onClick={handleVolver}>Volver</button>
     </div>
   
   )
