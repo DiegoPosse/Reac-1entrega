@@ -16,7 +16,7 @@ Para instalar y ejecutar este proyecto en otra computadora, siga los pasos a con
 Asegúrese de tener instalado Node.js en su computadora. Puede descargarlo desde https://nodejs.org.
 
 Clone este repositorio en su computadora utilizando Git:
-https://github.com/DiegoPosse/Reac-1entrega.git
+
 git clone <https://github.com/DiegoPosse/Reac-1entrega.git>
 
 Navegue hasta el directorio del proyecto:
