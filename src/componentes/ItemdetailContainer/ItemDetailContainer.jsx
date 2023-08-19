@@ -72,7 +72,7 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
 
   return (
     
-    <div>
+    <div className='detalle'>
       
       <h2>Detalle del producto :</h2>
       <ItemDetail producto={itemdetalle[0]} />

@@ -11,13 +11,14 @@ import { useCart } from '../../Context/CartContext'
   const closeRubrosMenu = () => {
     setRubrosMenuOpen(false);
   };
+  
+
   return (
     <nav id='navbar'>
       <div className="logo">
         <h1>Power Computación</h1>
-        <img src="..\src\assets\logo.jpeg" alt="logopower" width="50px" height="50px"/>
-  
-      </div>
+        <img src="../src/assets/logo.jpg" alt="logopower" width="50px" height="50px"/>
+     </div>
       <div className="nav-links">
         <NavLink to='/'>
           <span className='link'>Inicio</span>

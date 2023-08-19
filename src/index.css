@@ -43,6 +43,12 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+h2 {
+  color: #ddd;
+}
+.detalle {
+  color: #ddd;
+}
 
 button {
   border-radius: 4px;

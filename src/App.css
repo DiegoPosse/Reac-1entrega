@@ -34,14 +34,19 @@ body {
   }
 }
 
-
+h2 {
+  color: #ddd;
+}
+.detalle {
+  color: #ddd;
+}
 
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
-  color: #888;
+  color: #201f1f;
 }
 .itemlist {
   display: flex;
@@ -240,7 +245,7 @@ button {
   padding: 20px; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   font-size: 16px; 
-  color: #343a40; 
+  color: #676869; 
 }
 .volver {
   margin-left: 20px;
