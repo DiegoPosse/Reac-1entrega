@@ -18,6 +18,7 @@ Asegúrese de tener instalado Node.js en su computadora. Puede descargarlo desde
 Clone este repositorio en su computadora utilizando Git:
 https://github.com/DiegoPosse/Reac-1entrega.git
 git clone <https://github.com/DiegoPosse/Reac-1entrega.git>
+
 Navegue hasta el directorio del proyecto:
 
 cd e-commerce
