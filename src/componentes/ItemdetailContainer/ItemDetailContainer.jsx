@@ -38,15 +38,30 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
         cancelButtonText: 'No, cancelar !',
         reverseButtons: true
       }).then((result) => {
-        if (result.isConfirmed) {
-           swalWithBootstrapButtons.fire(
-             'Actualizado !!',
-             'El carrito a sido modificado',
-             'success'
-            )
-            const newQuantity = cantidad; 
-            updateItemQuantity(id, newQuantity); 
-
+        if (result.isConfirmed) {     
+          let currentQuantity = 0;
+          const currentItem = cart.find(item => item.id === id);
+          if (currentItem) {
+            currentQuantity = currentItem.quantity; 
+          }
+          const newQuantity = cantidad;
+          const suma = currentQuantity + newQuantity;
+          if (suma > stock) {
+            Swal.fire({
+              icon: 'error',
+              title: 'No hay suficiente stock disponible',
+              text: 'No se puede actualizar el artículo del carrito',
+            }) ;
+           }
+           else{
+            
+               swalWithBootstrapButtons.fire(
+               'Actualizado !!',
+               'El carrito a sido modificado',
+               'success'
+               )
+               updateItemQuantity(id, newQuantity); 
+          }
         } else if (
            result.dismiss === Swal.DismissReason.cancel
         ) {
@@ -60,8 +75,22 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
 
 
     }else {
-      
-      addItem(item, cantidad);
+      if (stock <= 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'No hay stock disponible',
+          text: 'No se puede agregar el artículo al carrito',
+        }) ;
+       }
+       else{    
+        addItem(item, cantidad);
+        Swal.fire({
+          icon: 'success',
+          title: 'Articulo agregado al carrito.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     }
          
   };

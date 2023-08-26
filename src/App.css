@@ -94,7 +94,13 @@ h2 {
 
 }
 .Noso >h1 {
-  color: rgb(234, 234, 246);
+  color: rgb(255, 255, 255);
+  margin: 15px;
+  padding: 10px;
+   
+}
+.Noso h1 {
+  color: rgb(255, 255, 255);
   margin: 15px;
   padding: 10px;
    
@@ -170,6 +176,9 @@ h2 {
   align-items: center;
 }
 
+.carrito td {
+  color: #ddd;
+}
 .carrito h2 {
   margin-bottom: 10px;
 }
@@ -213,6 +222,7 @@ h2 {
 .articulos {
   width: 100%;
   border-collapse: collapse;
+  color: #ddd;
 }
 
 .articulos th,
@@ -229,6 +239,9 @@ h2 {
 .articulos img {
   width: 50px;
   height: 50px;
+}
+.articulo {
+  color: #ddd;
 }
 
 .subtotal {

@@ -17,7 +17,7 @@ import { useCart } from '../../Context/CartContext'
     <nav id='navbar'>
       <div className="logo">
         <h1>Power Computación</h1>
-        <img src="../src/assets/logo.jpg" alt="logopower" width="50px" height="50px"/>
+        <img src="https://firebasestorage.googleapis.com/v0/b/e-commerce-25ba4.appspot.com/o/logo.jpg?alt=media&token=579fc971-1ac0-4ebc-a957-3e92cbc9d890" alt="logopower" width="50px" height="50px"/>
      </div>
       <div className="nav-links">
         <NavLink to='/'>

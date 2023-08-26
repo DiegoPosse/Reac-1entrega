@@ -37,11 +37,32 @@ body {
   min-width: 600px;
   min-height: 200vh;
 }
+.Noso >p {
+  color: rgb(207, 93, 16);
+  background: rgb(12, 11, 11);
+  margin: 15px;
+  padding: 0px;
+  font-weight: 400;
+  font-size: large;
 
+}
+.Noso >h1 {
+  color: rgb(255, 255, 255);
+  margin: 15px;
+  padding: 10px;
+   
+}
+.Noso h1 {
+  color: rgb(255, 255, 255);
+  margin: 15px;
+  padding: 10px;
+   
+}
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #ccc;
 }
 h2 {
   color: #ddd;

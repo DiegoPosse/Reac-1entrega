@@ -1,37 +1,21 @@
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, doc, getDoc, updateDoc , serverTimestamp} from 'firebase/firestore';
-
-
+import { query, where } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs,  updateDoc , serverTimestamp} from 'firebase/firestore';
 import { useCart } from '../../Context/CartContext';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyD9NHAgEUUoTRrIduo5fXejD5BFhM1HZ7o",
-  authDomain: "e-commerce-25ba4.firebaseapp.com",
-  projectId: "e-commerce-25ba4",
-  storageBucket: "e-commerce-25ba4.appspot.com",
-  messagingSenderId: "894774974938",
-  appId: "1:894774974938:web:202add97b6cce2adf2c8e3"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
 const Checkout = () => {
-  const { cart, deleteItem, clear } = useCart();
+  const { cart,  clear } = useCart();
   const history = useNavigate();
 
   const [user, setUser] = useState({});
   const [validate, setValidate] = useState('');
 
-  const getCartItemsFromLocalStorage = () => {
-    const cartItems = localStorage.getItem('carrito');
-    return cartItems ? JSON.parse(cartItems) : [];
-  };
+ 
   
   const userDat = (e) => {
     setUser({
@@ -39,10 +23,40 @@ const Checkout = () => {
       [e.target.name]: e.target.value,
     });
   };
- 
+  
+
+    const decrementStock = async (id, quantity) => {
+      const firebaseConfig = {
+        apiKey: "AIzaSyD9NHAgEUUoTRrIduo5fXejD5BFhM1HZ7o",
+        authDomain: "e-commerce-25ba4.firebaseapp.com",
+        projectId: "e-commerce-25ba4",
+        storageBucket: "e-commerce-25ba4.appspot.com",
+        messagingSenderId: "894774974938",
+        appId: "1:894774974938:web:202add97b6cce2adf2c8e3"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const productosCollection = collection(db, 'PowerComputacion');
+
+      const q = id ? query(productosCollection, where('id', '==', id)) : productosCollection;
+
+      const querySnapshot = await getDocs(q);
+      const doc = querySnapshot.docs[0];
+      const currentStock = doc.data().stock;
+      const newStock = currentStock - quantity;
+      
+      await updateDoc(doc.ref, {
+        stock: newStock,
+      });
+    };
+
+
   
   const generarOrden = async (e) => {
     e.preventDefault();
+    
     if (!user.name || !user.phone || !user.address || !user.mail || !user.paymentMethod) {
       
       Swal.fire({
@@ -52,9 +66,13 @@ const Checkout = () => {
       });
       return;
     }
- 
+    cart.forEach((producto) => {
+      
+      decrementStock(producto.id, producto.quantity);
+    });
     
     try {
+     
       const orderData = {
         items: cart,
         user: {
@@ -67,18 +85,32 @@ const Checkout = () => {
         createdAt: serverTimestamp(),
         purchaseDate: new Date().toLocaleDateString(), 
       };
-  
+      const firebaseConfig = {
+        apiKey: "AIzaSyD9NHAgEUUoTRrIduo5fXejD5BFhM1HZ7o",
+        authDomain: "e-commerce-25ba4.firebaseapp.com",
+        projectId: "e-commerce-25ba4",
+        storageBucket: "e-commerce-25ba4.appspot.com",
+        messagingSenderId: "894774974938",
+        appId: "1:894774974938:web:202add97b6cce2adf2c8e3"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
       const ordersCollectionRef = collection(db, 'orders');
       const docRef = await addDoc(ordersCollectionRef, orderData);
       const orderId = docRef.id; 
+      
+      
   
       Swal.fire({
         icon: 'success',
-        title: `Confirmado !! Su pago ha sido procesado. Número de orden: ${orderId}`,
+        title: `Confirmado !! Su pago ha sido procesado. Número de orden: ${orderId}
+        Muy pronto recibirá un correo con los datos para proceder !! 
+        Gracias  por su compra !!!`,
         showConfirmButton: true,
-        timer:4500,
+       
       });
-  
+      
       clear();
       history('/');
     } catch (error) {
