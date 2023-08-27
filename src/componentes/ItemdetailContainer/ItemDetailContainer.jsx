@@ -46,11 +46,14 @@ const ItemDetailContainer = ( {itemdetalle} ) => {
           }
           const newQuantity = cantidad;
           const suma = currentQuantity + newQuantity;
+          const resto =  stock - currentQuantity
           if (suma > stock) {
             Swal.fire({
               icon: 'error',
               title: 'No hay suficiente stock disponible',
-              text: 'No se puede actualizar el artículo del carrito',
+              text: 'ya hay '+currentQuantity+' en el carrito'+
+              ' solo puede agregar '+ resto +' como maximo'
+              
             }) ;
            }
            else{
